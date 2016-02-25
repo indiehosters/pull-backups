@@ -1,0 +1,10 @@
+sshd:
+  image: indiehosters/sshd
+  environment:
+    - SERVER
+    - PORT
+  volumes:
+    - /data/backups/$SERVER:/backups
+    - ./ssh:/root/.ssh
+    - ./entrypoint.sh:/entrypoint.sh
+  command: /entrypoint.sh
